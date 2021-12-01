@@ -37,7 +37,7 @@ export default function Form() {
         formData.append("document", JSON.stringify(body));
 
         axios
-            .post("https://apimailer.decow.fr/send-email-files", formData, {
+            .post("https://apimail.decow.fr/send-email-files", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },

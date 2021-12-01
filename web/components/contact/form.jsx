@@ -20,7 +20,7 @@ export default function Form() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        axios.post("https://apimailer.decow.fr/send-email", {
+        axios.post("https://apimail.decow.fr/send-email", {
                 to: "deschodtmickael@gmail.com",
                 client: "CBS",
                 subject: "Demande de contact sur le site CBS",
