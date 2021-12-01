@@ -1,6 +1,8 @@
 import Input from "../global/input/input";
 import React, { useState } from "react";
 import Textarea from "../global/input/textarea";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function Form() {
     const [firstname, setFirstname] = useState();
@@ -15,6 +17,29 @@ export default function Form() {
 
     // console.log(id);
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        axios.post("http://localhost:8000/send-email", {
+                to: "deschodtmickael@gmail.com",
+                client: "CBS",
+                subject: "Demande de contact sur le site CBS",
+
+                prenom: firstname,
+                nom: lastname,
+                société: company,
+                email: email,
+                tel: tel,
+                message: message,
+            })
+            .then((res) => {
+                Swal.fire({
+                    icon: "success",
+                    title: "Message envoyé avec succés",
+                });
+            });
+    };
+
     return (
         <div className="relative bg-white mt-6">
             <div className="absolute inset-0">
@@ -24,11 +49,12 @@ export default function Form() {
                 <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:pl-0 lg:pr-24 xl:pr-32">
                     <div className="">
                         <h1 className="font-extrabold text-2xl sm:text-3xl md:text-4xl text-gray-900 my-10">
-                            Besoin d’un expert comptable pour accompagner votre société ?
+                            Besoin d’un expert comptable pour accompagner votre
+                            société ?
                         </h1>
                         <p className="mt-3 text-lg leading-6 text-gray-500 mb-10">
-                            Tout au long de l’année, notre priorité : le conseil et
-                            l’accompagnement.
+                            Tout au long de l’année, notre priorité : le conseil
+                            et l’accompagnement.
                         </p>
                         <p className="mt-3 text-lg leading-6 text-gray-500 mb-10">
                             Contactez-nous pour échanger sur vos besoins.
@@ -40,11 +66,15 @@ export default function Form() {
                 </div>
                 <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
                     <div className="max-w-lg mx-auto lg:max-w-none">
-                        <form action="#" className="grid grid-cols-2 gap-6">
+                        <form
+                            onSubmit={(e) => handleSubmit(e)}
+                            className="grid grid-cols-2 gap-6"
+                        >
                             <Input
                                 input={firstname}
                                 setInput={setFirstname}
                                 type="text"
+                                name="firstname"
                                 label="Nom"
                                 required="true"
                                 className="col-span-2 lg:col-span-1"
@@ -53,6 +83,7 @@ export default function Form() {
                                 input={lastname}
                                 setInput={setLastname}
                                 type="text"
+                                name="lastname"
                                 label="Prénom"
                                 required="true"
                                 className="col-span-2 lg:col-span-1"
@@ -61,6 +92,7 @@ export default function Form() {
                                 input={company}
                                 setInput={setCompany}
                                 type="text"
+                                name="company"
                                 label="Société"
                                 required="true"
                                 className="col-span-2"
@@ -69,6 +101,7 @@ export default function Form() {
                                 input={email}
                                 setInput={setEmail}
                                 type="text"
+                                name="email"
                                 label="Email"
                                 required="true"
                                 className="col-span-2 lg:col-span-1"
@@ -77,6 +110,7 @@ export default function Form() {
                                 input={tel}
                                 setInput={setTel}
                                 type="text"
+                                name="tel"
                                 label="Téléphone"
                                 required="true"
                                 className="col-span-2 lg:col-span-1"
@@ -85,6 +119,7 @@ export default function Form() {
                                 input={message}
                                 setInput={setMessage}
                                 type="textarea"
+                                name="message"
                                 label="Message"
                                 required="true"
                                 className="col-span-2"

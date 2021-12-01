@@ -1,9 +1,10 @@
 import Input from "../global/input/input";
 import React, { useState } from "react";
 import DropzoneInput from "../global/input/dropzone";
+import dayjs from "dayjs";
+import axios from "axios";
 
 export default function Form() {
-
     const [firstname, setFirstname] = useState();
     const [lastname, setLastname] = useState();
     const [birthdate, setBirthdate] = useState();
@@ -11,7 +12,45 @@ export default function Form() {
     const [tel, setTel] = useState();
     const [cv, setCv] = useState([]);
 
-    return(
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        let formData = new FormData();
+
+        console.log(cv);
+        for (const file of cv) {
+            formData.append("file", file);
+        }
+
+        const body = {
+            to: "deschodtmickael@gmail.com",
+            client: "CBS",
+            subject: "Demande de recrutement sur le site CBS",
+
+            prenom: firstname,
+            nom: lastname,
+            birthdate: dayjs(birthdate).format("DD/MM/YYYY"),
+            email: email,
+            tel: tel,
+        };
+
+        formData.append("document", JSON.stringify(body));
+
+        axios
+            .post("http://localhost:8000/send-email-files", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            })
+            .then((res) => {
+                Swal.fire({
+                    icon: "success",
+                    title: "Message envoyé avec succés",
+                });
+            });
+    };
+
+    return (
         <div className="relative bg-white mt-6">
             <div className="absolute inset-0">
                 <div className="absolute inset-y-0 left-0 w-1/2 bg-gray-50" />
@@ -23,16 +62,21 @@ export default function Form() {
                             Prêt pour une nouvelle aventure salariale ?
                         </h1>
                         <p className="mt-3 text-lg leading-6 text-gray-500 mb-10">
-                            Une expérience humaine unique, dans un cadre bienveillant et formateur.
+                            Une expérience humaine unique, dans un cadre
+                            bienveillant et formateur.
                         </p>
                         <p className="mt-3 text-lg leading-6 text-gray-500 mb-10">
-                            Renseignez vos informations et déposez vos curriculum vitae.
+                            Renseignez vos informations et déposez vos
+                            curriculum vitae.
                         </p>
                     </div>
                 </div>
                 <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
                     <div className="max-w-lg mx-auto lg:max-w-none">
-                        <form action="#" className="grid grid-cols-2 gap-6">
+                        <form
+                            onSubmit={(e) => handleSubmit(e)}
+                            className="grid grid-cols-2 gap-6"
+                        >
                             <Input
                                 input={firstname}
                                 setInput={setFirstname}
@@ -73,7 +117,13 @@ export default function Form() {
                                 required="true"
                                 className="col-span-2 lg:col-span-1"
                             />
-                            <DropzoneInput file={cv} setFile={setCv} name="cv" label="Curriculum Vitae" className="col-span-2" />
+                            <DropzoneInput
+                                file={cv}
+                                setFile={setCv}
+                                name="cv"
+                                label="Curriculum Vitae"
+                                className="col-span-2"
+                            />
                             <div className="col-span-2 text-right">
                                 <button
                                     type="submit"
@@ -87,5 +137,5 @@ export default function Form() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
