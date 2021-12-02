@@ -9,7 +9,7 @@ export default function MentionsLegales() {
                 <meta name="robots" content="none" />
                 <title>CBS - Mentions légales</title>
                 <meta name="description" content="CBS Expert-comptable à Poitiers. Cabinet d'expert comptable indépendant et à taille humaine. Orienté dans le conseil et l'accompagnement." />
-                <link rel="icon" href="/logoFondNoir.png" />
+                <link rel="icon" href="/logoFavicon.png" />
             </Head>
 
             <main>

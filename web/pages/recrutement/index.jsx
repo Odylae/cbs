@@ -10,7 +10,7 @@ export default function Recrutement() {
                 <meta name="robots" content="none" />
                 <title>CBS - Rejoignez-nous</title>
                 <meta name="description" content="Une expérience salariale unique. Dans un cabinet d'expert comptable indépendant et à taille humaine. Rejoignez notre équipe !" />
-                <link rel="icon" href="/logoFondNoir.png" />
+                <link rel="icon" href="/logoFavicon.png" />
             </Head>
 
             <main >

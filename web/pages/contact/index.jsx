@@ -10,7 +10,7 @@ export default function Contact() {
                 <meta name="robots" content="none" />
                 <title>CBS - Contactez-nous</title>
                 <meta name="description" content="Contactez CBS Expert-comptable. Cabinet d'expert comptable à votre écoute pour vous accompagner. Vous et votre entreprise." />
-                <link rel="icon" href="/logoFondNoir.png" />
+                <link rel="icon" href="/logoFavicon.png" />
             </Head>
 
             <main>

@@ -11,7 +11,7 @@ export default function Home() {
                 <meta name="robots" content="none" />
                 <title>CBS - Le cabinet d'expert comptable qui est là pour vous accompagner dans votre (futur) projet</title>
                 <meta name="description" content="CBS Expert-comptable à Poitiers. Cabinet d'expert comptable indépendant et à taille humaine. Orienté dans le conseil et l'accompagnement." />
-                <link rel="icon" href="/logoFondNoir.png" />
+                <link rel="icon" href="/logoFavicon.png" />
             </Head>
 
             <main>
