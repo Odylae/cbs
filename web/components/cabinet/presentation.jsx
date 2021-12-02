@@ -9,7 +9,7 @@ export default function Presentation() {
                     est une société d'expertise comptable et de commissariat aux comptes située au 6, rue Bessie Coleman à POITIERS. Son fondateur est M. Sacha DAVID.
                 </p>
                 <p>
-                    <a href="tel:0974369983" className="max-w-md mx-auto text-base text-gray-500 hover:text-gray-700 sm:text-lg md:mt-10 md:text-xl md:max-w-3xl">
+                    <a href="tel:0618062649" className="max-w-md mx-auto text-base text-gray-500 hover:text-gray-700 sm:text-lg md:mt-10 md:text-xl md:max-w-3xl">
                         06 18 06 26 49
                     </a>
                 </p>
