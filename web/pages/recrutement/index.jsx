@@ -7,7 +7,9 @@ export default function Recrutement() {
     return (
         <div>
             <Head>
-                <title>CBS - Recrutement</title>
+                <meta name="robots" content="none" />
+                <title>CBS - Rejoignez-nous</title>
+                <meta name="description" content="Une expérience salariale unique. Dans un cabinet d'expert comptable indépendant et à taille humaine. Rejoignez notre équipe !" />
                 <link rel="icon" href="/logoFondNoir.png" />
             </Head>
 

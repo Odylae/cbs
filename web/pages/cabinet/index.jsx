@@ -11,7 +11,9 @@ export default function Cabinet() {
     return (
         <div>
             <Head>
+                <meta name="robots" content="none" />
                 <title>CBS - Le cabinet</title>
+                <meta name="description" content="Un cabinet indépendant : CBS Expert-comptable. CBS = Conseil Business Services. Son fondateur est M. Sacha David." />
                 <link rel="icon" href="/logoFondNoir.png" />
             </Head>
 

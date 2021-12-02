@@ -1,4 +1,5 @@
-import { GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@heroicons/react/outline'
+import { GlobeAltIcon, LightningBoltIcon, LinkIcon, ScaleIcon } from '@heroicons/react/outline'
+import Link from 'next/link'
 
 const features = [
     {
@@ -35,9 +36,11 @@ export default function Details() {
                         </div>
                     ))}
                 </dl>
-                <a href="/cabinet" className="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    En savoir plus sur le cabinet
-                </a>
+                <Link href="/cabinet">
+                    <a className="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        En savoir plus sur le cabinet
+                    </a>
+                </Link>
             </div>
         </div>
     )

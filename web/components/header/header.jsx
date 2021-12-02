@@ -40,7 +40,7 @@ export default function Header() {
                                 </a>
                             </Link>
                         ))}
-                        <a href="#" className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <a href="https://90550391-quadraweb.cegid.com/qws/" className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             Quadra Web
                         </a>
                     </div>
@@ -85,7 +85,7 @@ export default function Header() {
                             ))}
                         </div>
                         <a
-                            href="#"
+                            href="https://90550391-quadraweb.cegid.com/qws/"
                             className="block w-full px-5 py-3 text-center font-medium text-white bg-primary hover:bg-indigo-700"
                         >
                             Quadra Web

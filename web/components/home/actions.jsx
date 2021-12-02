@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Actions() {
     return (
         <div className="lg:relative">
@@ -11,12 +13,13 @@ export default function Actions() {
                     </p>
                     <div className="my-10 lg:mb-0 mx-auto lg:mx-0 sm:flex sm:justify-center lg:justify-start">
                         <div className="rounded-md shadow">
-                            <a
-                                href="/contact"
-                                className="inline-flex items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-primary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-                            >
-                                Contactez-nous
-                            </a>
+                            <Link href="/contact">
+                                <a                                    
+                                    className="inline-flex items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-primary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                                >
+                                    Contactez-nous
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -29,12 +32,13 @@ export default function Actions() {
                     </p>
                     <div className="my-10 lg:mb-0 mx-auto lg:mx-0  sm:flex sm:justify-center lg:justify-start">
                         <div className="rounded-md shadow">
-                            <a
-                                href="/recrutement"
-                                className="inline-flex items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-primary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
-                            >
-                                Rejoignez-nous
-                            </a>
+                            <Link href="/recrutement">
+                                <a
+                                    className="inline-flex items-center px-6 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-primary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                                >
+                                    Rejoignez-nous
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

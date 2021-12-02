@@ -33,7 +33,7 @@ export default function Details() {
                     <div className="absolute inset-0 bg-gray-800 mix-blend-multiply" aria-hidden="true" />
                 </div>
                 <div className="relative py-24 px-4 sm:py-32 sm:px-6 lg:px-24">
-                    <h1 className="font-extrabold text-2xl sm:text-3xl md:text-4xl tracking-tight text-white">Son ADN est la suivante :</h1>
+                    <h2 className="font-extrabold text-2xl sm:text-3xl md:text-4xl tracking-tight text-white">Son ADN est la suivante :</h2>
                 </div>
             </div>
 

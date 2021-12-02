@@ -23,7 +23,7 @@ export default function Signature() {
                         </div>
                     </div>
                     <div className="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
-                        <img className="h-52 object-cover shadow-lg rounded-lg" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="" />
+                        <img className="h-52 object-cover shadow-lg rounded-lg" src="/sasha-david.jpg" alt="" />
                     </div>
                 </div>
             </div>

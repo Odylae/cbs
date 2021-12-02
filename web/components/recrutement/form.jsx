@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import DropzoneInput from "../global/input/dropzone";
 import dayjs from "dayjs";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function Form() {
     const [firstname, setFirstname] = useState();
@@ -36,13 +37,13 @@ export default function Form() {
 
         formData.append("document", JSON.stringify(body));
 
-        axios
-            .post("https://apimail.decow.fr/send-email-files", formData, {
+        axios.post("https://apimail.decow.fr/send-email-files", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
             })
             .then((res) => {
+                console.log(res);
                 Swal.fire({
                     icon: "success",
                     title: "Message envoyé avec succés",
@@ -80,6 +81,7 @@ export default function Form() {
                             <Input
                                 input={firstname}
                                 setInput={setFirstname}
+                                autoComplete="given-name"
                                 type="text"
                                 label="Nom"
                                 required="true"
@@ -88,6 +90,7 @@ export default function Form() {
                             <Input
                                 input={lastname}
                                 setInput={setLastname}
+                                autoComplete="family-name"
                                 type="text"
                                 label="Prénom"
                                 required="true"
@@ -97,6 +100,7 @@ export default function Form() {
                                 input={birthdate}
                                 setInput={setBirthdate}
                                 type="date"
+                                autoComplete="bday"
                                 label="Date de naissance"
                                 required="true"
                                 className="col-span-2"
@@ -104,7 +108,8 @@ export default function Form() {
                             <Input
                                 input={email}
                                 setInput={setEmail}
-                                type="text"
+                                type="email"
+                                autoComplete="email"
                                 label="Email"
                                 required="true"
                                 className="col-span-2 lg:col-span-1"
@@ -112,7 +117,8 @@ export default function Form() {
                             <Input
                                 input={tel}
                                 setInput={setTel}
-                                type="text"
+                                type="tel"
+                                autoComplete="tel"
                                 label="Téléphone"
                                 required="true"
                                 className="col-span-2 lg:col-span-1"
