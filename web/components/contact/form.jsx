@@ -21,7 +21,7 @@ export default function Form() {
         e.preventDefault();
 
         axios.post("https://apimail.decow.fr/send-email", {
-                to: "deschodtmickael@gmail.com",
+                to: "s.david@cbsexpertcomptable.fr",
                 client: "CBS",
                 subject: "Demande de contact sur le site CBS",
 

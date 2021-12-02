@@ -24,7 +24,7 @@ export default function Form() {
         }
 
         const body = {
-            to: "deschodtmickael@gmail.com",
+            to: "s.david@cbsexpertcomptable.fr",
             client: "CBS",
             subject: "Demande de recrutement sur le site CBS",
 

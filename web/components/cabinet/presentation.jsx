@@ -10,6 +10,11 @@ export default function Presentation() {
                 </p>
                 <p>
                     <a href="tel:0974369983" className="max-w-md mx-auto text-base text-gray-500 hover:text-gray-700 sm:text-lg md:mt-10 md:text-xl md:max-w-3xl">
+                        06 18 06 26 49
+                    </a>
+                </p>
+                <p>
+                    <a href="tel:0974369983" className="max-w-md mx-auto text-base text-gray-500 hover:text-gray-700 sm:text-lg md:mt-10 md:text-xl md:max-w-3xl">
                         09 74 36 99 83
                     </a>
                 </p>
