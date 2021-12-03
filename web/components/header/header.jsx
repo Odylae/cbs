@@ -65,7 +65,7 @@ export default function Header() {
                             <div>
                                 <img
                                     className="h-8 w-auto"
-                                    src="/LogoCBS.png"
+                                    src="/LogoCBS.svg"
                                     alt=""
                                 />
                             </div>
