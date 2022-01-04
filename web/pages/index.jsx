@@ -9,7 +9,7 @@ export default function Home() {
         <div>
             <Head>
                 <meta name="robots" content="all" />
-                <title>CBS - Le cabinet d'expert comptable qui est là pour vous accompagner dans votre (futur) projet</title>
+                <title>CBS - Expert comptable</title>
                 <meta name="description" content="CBS Expert-comptable à Poitiers. Cabinet d'expert comptable indépendant et à taille humaine. Orienté dans le conseil et l'accompagnement." />
                 <link rel="icon" href="/logoFavicon.png" />
             </Head>

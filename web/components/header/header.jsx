@@ -20,7 +20,7 @@ export default function Header() {
                                 <a>
                                     <img
                                         className="h-8 w-auto sm:h-14"
-                                        src="/logo.png"
+                                        src="/LogoCBS.svg"
                                     />
                                 </a>
                             </Link>
@@ -65,7 +65,7 @@ export default function Header() {
                             <div>
                                 <img
                                     className="h-8 w-auto"
-                                    src="/LogoCBS.png"
+                                    src="/LogoCBS.svg"
                                     alt=""
                                 />
                             </div>
