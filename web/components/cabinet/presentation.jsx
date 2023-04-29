@@ -23,6 +23,9 @@ export default function Presentation() {
                         s.david@cbsexpertcomptable.fr
                     </a>
                 </p>
+                <div className="flex items-center justify-center">
+                    <video src="/CBS_Vfinale_AdobeExpress.mp4" className={"aspect-16/9 w-1/2 pt-10"} controls autoPlay preload="auto"></video>
+                </div>
             </div>
         </div>
     )

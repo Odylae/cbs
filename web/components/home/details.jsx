@@ -37,9 +37,9 @@ export default function Details() {
                     ))}
                 </dl>
                 <Link href="/cabinet">
-                    <a className="inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <span className="cursor-pointer inline-flex items-center px-6 py-3 border border-gray-300 shadow-sm text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         En savoir plus sur le cabinet
-                    </a>
+                    </span>
                 </Link>
             </div>
         </div>

@@ -17,12 +17,12 @@ export default function Header() {
                     <div className="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
                         <div className="flex items-center justify-between w-full md:w-auto">
                             <Link href="/">
-                                <a>
+                                <div className="cursor-pointer">
                                     <img
                                         className="h-8 w-auto sm:h-14"
                                         src="/LogoCBS.svg"
                                     />
-                                </a>
+                                </div>
                             </Link>
                             <div className="-mr-2 flex items-center md:hidden">
                                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -35,9 +35,9 @@ export default function Header() {
                     <div className="hidden md:block md:ml-14 md:pr-4 md:space-x-14">
                         {navigation.map((item) => (
                             <Link key={item.name} href={item.href}>
-                                <a className="font-medium text-gray-500 hover:text-gray-900">
+                                <span className="cursor-pointer font-medium text-gray-500 hover:text-gray-900">
                                     {item.name}
-                                </a>
+                                </span>
                             </Link>
                         ))}
                         <a href="https://90550391-quadraweb.cegid.com/qws/" className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -78,9 +78,9 @@ export default function Header() {
                         <div className="px-2 pt-2 pb-3 space-y-1">
                             {navigation.map((item) => (
                                 <Link key={item.name} href={item.href}>
-                                    <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
+                                    <span className="cursor-pointer block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">
                                         {item.name}
-                                    </a>
+                                    </span>
                                 </Link>
                             ))}
                         </div>
