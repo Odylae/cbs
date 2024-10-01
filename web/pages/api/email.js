@@ -14,7 +14,7 @@ export default async function handler(req, res) {
         try {
             const { data, error } = await resend.emails.send({
                 from: `Cbs Contact <noreply@email.decow.fr>`,
-                to: "test-0662eevn4@srv1.mail-tester.com",
+                to: process.env.RESEND_EMAIL,
                 subject: "Demande de contact sur le site CBS",
                 react: EmailTemplate({ email, message, tel, lastname, company, firstname }),
             });
