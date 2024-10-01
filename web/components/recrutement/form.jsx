@@ -1,9 +1,8 @@
-import Input from "../global/input/input";
-import React, { useState } from "react";
-import DropzoneInput from "../global/input/dropzone";
-import dayjs from "dayjs";
 import axios from "axios";
+import React, {useState} from "react";
 import Swal from "sweetalert2";
+import DropzoneInput from "../global/input/dropzone";
+import Input from "../global/input/input";
 
 export default function Form() {
     const [firstname, setFirstname] = useState();
@@ -13,42 +12,42 @@ export default function Form() {
     const [tel, setTel] = useState();
     const [cv, setCv] = useState([]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = async (event) => {
+        event.preventDefault();
 
-        let formData = new FormData();
+        // Créer un objet FormData pour envoyer des données avec un fichier
+        const formData = new FormData();
+        formData.append("firstname", firstname);
+        formData.append("lastname", lastname);
+        formData.append("email", email);
+        formData.append("tel", tel);
+        formData.append("birthDate", birthdate);
 
-        console.log(cv);
         for (const file of cv) {
-            formData.append("file", file);
+            formData.append("attachment", file);
         }
 
-        const body = {
-            to: "s.david@cbsexpertcomptable.fr",
-            client: "CBS",
-            subject: "Demande de recrutement sur le site CBS",
-
-            prenom: firstname,
-            nom: lastname,
-            birthdate: dayjs(birthdate).format("DD/MM/YYYY"),
-            email: email,
-            tel: tel,
-        };
-
-        formData.append("document", JSON.stringify(body));
-
-        axios.post("https://apimail.decow.fr/send-email-files", formData, {
+        try {
+            const response = await axios.post("/api/recrutement", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
-            })
-            .then((res) => {
-                console.log(res);
-                Swal.fire({
-                    icon: "success",
-                    title: "Message envoyé avec succés",
-                });
             });
+
+            // Gérer la réponse du serveur
+            Swal.fire({
+                icon: "success",
+                title: "Message envoyé avec succès",
+                text: response.data.message,
+            });
+        } catch (error) {
+            console.error("Erreur lors de l'envoi de la requête :", error);
+            Swal.fire({
+                icon: "error",
+                title: "Échec de l'envoi du message",
+                text: "Veuillez vérifier les informations saisies et réessayer.",
+            });
+        }
     };
 
     return (
@@ -79,6 +78,7 @@ export default function Form() {
                             className="grid grid-cols-2 gap-6"
                         >
                             <Input
+                                name={"firstname"}
                                 input={firstname}
                                 setInput={setFirstname}
                                 autoComplete="given-name"
@@ -88,6 +88,7 @@ export default function Form() {
                                 className="col-span-2 lg:col-span-1"
                             />
                             <Input
+                                name={"lastname"}
                                 input={lastname}
                                 setInput={setLastname}
                                 autoComplete="family-name"
@@ -97,6 +98,7 @@ export default function Form() {
                                 className="col-span-2 lg:col-span-1"
                             />
                             <Input
+                                name={"birthdate"}
                                 input={birthdate}
                                 setInput={setBirthdate}
                                 type="date"
@@ -106,6 +108,7 @@ export default function Form() {
                                 className="col-span-2"
                             />
                             <Input
+                                name={"email"}
                                 input={email}
                                 setInput={setEmail}
                                 type="email"
@@ -115,6 +118,7 @@ export default function Form() {
                                 className="col-span-2 lg:col-span-1"
                             />
                             <Input
+                                name={"tel"}
                                 input={tel}
                                 setInput={setTel}
                                 type="tel"
