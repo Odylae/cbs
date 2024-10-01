@@ -1,8 +1,9 @@
 import Input from "../global/input/input";
 import React, { useState } from "react";
 import Textarea from "../global/input/textarea";
-import axios from "axios";
 import Swal from "sweetalert2";
+import {Resend} from "resend";
+import EmailTemplate from "../../emails/EmailTemplate";
 
 export default function Form() {
     const [firstname, setFirstname] = useState();
@@ -12,32 +13,48 @@ export default function Form() {
     const [tel, setTel] = useState();
     const [message, setMessage] = useState();
 
-    // const queryParams = new URLSearchParams(window?.location.search);
-    // const id = queryParams.get('sent');
+    console.log(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
-    // console.log(id);
+    const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        axios.post("https://apimail.decow.fr/send-email", {
-                to: "test-dl1cvbwl0@srv1.mail-tester.com",
-                client: "CBS",
+        if (
+            !firstname ||
+            !lastname ||
+            !company ||
+            !email ||
+            !tel ||
+            !message
+        ) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Veuillez remplir tous les champs",
+            });
+            return;
+        }
+            resend.emails.send({
+                from: `Cbs Contact <noreply@email.decow.fr>`,
+                to: "test-0662eevn4@srv1.mail-tester.com",
                 subject: "Demande de contact sur le site CBS",
-
-                prenom: firstname,
-                nom: lastname,
-                société: company,
-                email: email,
-                tel: tel,
-                message: message,
-            })
-            .then((res) => {
+                react: EmailTemplate({ email, message, tel, lastname, company, firstname}),
+            }).then((response) => {
+                console.log(response);
                 Swal.fire({
                     icon: "success",
-                    title: "Message envoyé avec succés",
+                    title: "Merci",
+                    text: "Votre message a bien été envoyé",
+                });
+            }).catch((error) => {
+                console.error(error);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Une erreur est survenue, veuillez réessayer",
                 });
             });
+
     };
 
     return (
