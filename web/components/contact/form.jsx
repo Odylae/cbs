@@ -13,9 +13,7 @@ export default function Form() {
     const [tel, setTel] = useState();
     const [message, setMessage] = useState();
 
-    console.log(process.env.NEXT_PUBLIC_RESEND_API_KEY);
-
-    const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+    const resend = new Resend("re_4SbJArft_BERgUB9XiQdiwN49PHxUjDEm");
 
     const handleSubmit = (e) => {
         e.preventDefault();
